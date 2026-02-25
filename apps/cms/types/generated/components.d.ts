@@ -3,12 +3,37 @@ import type { Schema, Struct } from '@strapi/strapi';
 export interface ElementsHeading extends Struct.ComponentSchema {
   collectionName: 'components_elements_headings';
   info: {
-    displayName: 'heading';
+    displayName: 'TitleWithDescription';
   };
   attributes: {
-    headingHighlight: Schema.Attribute.String;
-    headingTop: Schema.Attribute.String;
+    description: Schema.Attribute.RichText;
     subTitle: Schema.Attribute.Text;
+    title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsLink extends Struct.ComponentSchema {
+  collectionName: 'components_elements_links';
+  info: {
+    displayName: 'Link';
+  };
+  attributes: {
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    linkText: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsLinkWithImage extends Struct.ComponentSchema {
+  collectionName: 'components_elements_link_with_images';
+  info: {
+    displayName: 'LinkWithImage';
+  };
+  attributes: {
+    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    linkText: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -67,6 +92,8 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'elements.heading': ElementsHeading;
+      'elements.link': ElementsLink;
+      'elements.link-with-image': ElementsLinkWithImage;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
     }

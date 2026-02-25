@@ -1,18 +1,18 @@
 {
   "collectionName": "components_elements_headings",
   "info": {
-    "displayName": "heading"
+    "displayName": "TitleWithDescription"
   },
   "options": {},
   "attributes": {
-    "headingTop": {
-      "type": "string"
-    },
-    "headingHighlight": {
+    "title": {
       "type": "string"
     },
     "subTitle": {
       "type": "text"
+    },
+    "description": {
+      "type": "richtext"
     }
   },
   "config": {}
