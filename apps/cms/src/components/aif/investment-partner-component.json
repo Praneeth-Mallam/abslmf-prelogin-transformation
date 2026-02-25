@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_aif_investment_partner_components",
+  "info": {
+    "displayName": "InvestmentPartnerComponent",
+    "icon": "user"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "component",
+      "component": "elements.heading",
+      "repeatable": false
+    },
+    "investment_partners": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::investment-partner.investment-partner"
+    },
+    "BackgroundVideo": {
+      "type": "media",
+      "multiple": true,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "CTA": {
+      "type": "component",
+      "component": "elements.link-with-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

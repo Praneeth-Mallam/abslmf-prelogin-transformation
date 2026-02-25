@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_shared_info_cards",
+  "info": {
+    "displayName": "InfoCard"
+  },
+  "options": {},
+  "attributes": {
+    "Content": {
+      "type": "component",
+      "component": "elements.title-with-description",
+      "repeatable": false
+    },
+    "CTA": {
+      "type": "component",
+      "component": "elements.link-with-image",
+      "repeatable": false
+    }
+  },
+  "config": {}
+}

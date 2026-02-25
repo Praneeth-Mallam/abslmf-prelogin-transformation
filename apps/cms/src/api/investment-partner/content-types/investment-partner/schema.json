@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "investment_partners",
+  "info": {
+    "singularName": "investment-partner",
+    "pluralName": "investment-partners",
+    "displayName": "InvestmentPartner"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "private": true
+    },
+    "Partners": {
+      "type": "component",
+      "component": "shared.info-card",
+      "repeatable": false
+    }
+  }
+}

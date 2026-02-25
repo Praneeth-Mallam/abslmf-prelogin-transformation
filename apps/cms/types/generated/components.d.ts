@@ -1,14 +1,33 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface AifInvestmentPartnerComponent extends Struct.ComponentSchema {
+  collectionName: 'components_aif_investment_partner_components';
+  info: {
+    displayName: 'InvestmentPartnerComponent';
+    icon: 'user';
+  };
+  attributes: {
+    BackgroundVideo: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    CTA: Schema.Attribute.Component<'elements.link-with-image', false>;
+    investment_partners: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::investment-partner.investment-partner'
+    >;
+    Title: Schema.Attribute.Component<'elements.heading', false>;
+  };
+}
+
 export interface ElementsHeading extends Struct.ComponentSchema {
   collectionName: 'components_elements_headings';
   info: {
-    displayName: 'TitleWithDescription';
+    displayName: 'Heading';
   };
   attributes: {
-    description: Schema.Attribute.RichText;
-    subTitle: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    Heading: Schema.Attribute.String;
+    SubHeading: Schema.Attribute.Text;
   };
 }
 
@@ -19,8 +38,8 @@ export interface ElementsLink extends Struct.ComponentSchema {
   };
   attributes: {
     isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    linkText: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    LinkText: Schema.Attribute.String;
+    URL: Schema.Attribute.String;
   };
 }
 
@@ -30,10 +49,34 @@ export interface ElementsLinkWithImage extends Struct.ComponentSchema {
     displayName: 'LinkWithImage';
   };
   attributes: {
-    image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
-    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    linkText: Schema.Attribute.String;
-    url: Schema.Attribute.String;
+    Image: Schema.Attribute.Media<'images' | 'files' | 'videos' | 'audios'>;
+    Link: Schema.Attribute.Component<'elements.link', false>;
+  };
+}
+
+export interface ElementsTitleWithDescription extends Struct.ComponentSchema {
+  collectionName: 'components_elements_title_with_descriptions';
+  info: {
+    displayName: 'TitleWithDescription';
+  };
+  attributes: {
+    Description: Schema.Attribute.RichText;
+    SubTitle: Schema.Attribute.Text;
+    Title: Schema.Attribute.String;
+  };
+}
+
+export interface SharedInfoCard extends Struct.ComponentSchema {
+  collectionName: 'components_shared_info_cards';
+  info: {
+    displayName: 'InfoCard';
+  };
+  attributes: {
+    Content: Schema.Attribute.Component<
+      'elements.title-with-description',
+      false
+    >;
+    CTA: Schema.Attribute.Component<'elements.link-with-image', false>;
   };
 }
 
@@ -91,9 +134,12 @@ export interface SharedSeo extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'aif.investment-partner-component': AifInvestmentPartnerComponent;
       'elements.heading': ElementsHeading;
       'elements.link': ElementsLink;
       'elements.link-with-image': ElementsLinkWithImage;
+      'elements.title-with-description': ElementsTitleWithDescription;
+      'shared.info-card': SharedInfoCard;
       'shared.open-graph': SharedOpenGraph;
       'shared.seo': SharedSeo;
     }

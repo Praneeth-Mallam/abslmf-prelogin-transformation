@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_elements_title_with_descriptions",
+  "info": {
+    "displayName": "TitleWithDescription"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "SubTitle": {
+      "type": "text"
+    },
+    "Description": {
+      "type": "richtext"
+    }
+  },
+  "config": {}
+}

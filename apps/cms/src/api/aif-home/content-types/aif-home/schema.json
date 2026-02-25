@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "aif_homes",
+  "info": {
+    "singularName": "aif-home",
+    "pluralName": "aif-homes",
+    "displayName": "AIF Home"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Comp": {
+      "type": "dynamiczone",
+      "components": [
+        "aif.investment-partner-component"
+      ]
+    }
+  }
+}

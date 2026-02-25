@@ -5,10 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "linkText": {
+    "LinkText": {
       "type": "string"
     },
-    "url": {
+    "URL": {
       "type": "string"
     },
     "isExternal": {

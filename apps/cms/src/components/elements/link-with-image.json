@@ -5,13 +5,12 @@
   },
   "options": {},
   "attributes": {
-    "linkText": {
-      "type": "string"
+    "Link": {
+      "type": "component",
+      "component": "elements.link",
+      "repeatable": false
     },
-    "url": {
-      "type": "string"
-    },
-    "image": {
+    "Image": {
       "type": "media",
       "multiple": false,
       "allowedTypes": [
@@ -20,10 +19,6 @@
         "videos",
         "audios"
       ]
-    },
-    "isExternal": {
-      "type": "boolean",
-      "default": false
     }
   },
   "config": {}
