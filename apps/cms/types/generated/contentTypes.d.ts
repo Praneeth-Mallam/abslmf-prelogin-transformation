@@ -451,6 +451,7 @@ export interface ApiAifHomeAifHome extends Struct.SingleTypeSchema {
       'api::aif-home.aif-home'
     > &
       Schema.Attribute.Private;
+    Name: Schema.Attribute.String & Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &

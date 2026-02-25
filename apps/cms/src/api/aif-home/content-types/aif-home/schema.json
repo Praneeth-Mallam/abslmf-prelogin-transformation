@@ -11,6 +11,10 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "Name": {
+      "type": "string",
+      "private": true
+    },
     "Comp": {
       "type": "dynamiczone",
       "components": [
