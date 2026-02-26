@@ -1,0 +1,418 @@
+/* ================================
+   Accessibility – Text Size Levels
+================================ */
+.textLevel0 {
+  --kicker-scale: 1;
+  --title-scale: 1;
+  --desc-scale: 1;
+}
+
+.textLevel1 {
+  --kicker-scale: 1.05;
+  --title-scale: 1.055;
+  --desc-scale: 1.05;
+}
+
+.textLevel2 {
+  --kicker-scale: 1.1;
+  --title-scale: 1.11;
+  --desc-scale: 1.08;
+}
+
+/* ================================
+   Accessibility – Line Spacing Levels
+================================ */
+.lineLevel0 {
+  --kicker-line: 1;
+  --title-line: 1;
+  --desc-line: 1;
+}
+
+.lineLevel1 {
+  --kicker-line: 1.15;
+  --title-line: 1.1;
+  --desc-line: 1.2;
+}
+
+.lineLevel2 {
+  --kicker-line: 1.3;
+  --title-line: 1.2;
+  --desc-line: 1.35;
+}
+
+/* ================================
+   Accessibility – Letter Spacing Levels
+================================ */
+.letterLevel0 {
+  --kicker-letter: 0px;
+  --title-letter: 0px;
+  --desc-letter: 0px;
+}
+
+.letterLevel1 {
+  --kicker-letter: 0.5px;   // subtle
+  --title-letter: 0.6px;
+  --desc-letter: 0.4px;
+}
+
+.letterLevel2 {
+  --kicker-letter: 1px;     // more readable, not too wide
+  --title-letter: 0.8px;
+  --desc-letter: 0.6px;
+}
+
+/* Accessibility – Color Filters (Composable) */
+.grayscale {
+  --a11y-grayscale: 1;
+}
+
+.lowSaturation {
+  --a11y-saturate: 0.6;
+}
+
+/* ================================
+   Accessibility – Highlight Links (Scoped)
+================================ */
+.highlightLinks {
+  a,
+  button {
+    border: 3px dashed #7a3cff;
+    outline: none;
+    outline-offset: 3px;
+    border-radius: 100px;
+  }
+
+  /* Tabs */
+  .tab {
+    border-radius: 10px;
+    border: 3px dashed #7a3cff;
+    background: rgba(122, 60, 255, 0.12);
+  }
+
+  /* CTAs */
+  .primaryBtn,
+  .secondaryBtn {
+    box-shadow: 0 0 0 3px rgba(122, 60, 255, 0.6);
+  }
+}
+
+/* Hover & Focus (stronger highlight) */
+.highlightLinks {
+  a:hover,
+  a:focus-visible,
+  button:hover,
+  button:focus-visible {
+    border-color: #5a2bd8;
+    outline: 3px dashed #5a2bd8;
+    outline-offset: 4px;
+    border-radius: 100px;
+  }
+}
+
+.banner {
+  position: relative;
+  min-height: calc(100vh);
+  overflow: hidden;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: #160a35;
+  opacity: 0.75;
+  z-index: 1;
+}
+
+.inner {
+  z-index: 2;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 60px;
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  @media (max-width: 1780px) {
+    max-width: 1580px;
+  }
+  @media (max-width: 1600px) {
+    max-width: 1380px;
+  }
+}
+
+.left {
+  max-width: 529px;
+}
+.titleWrap {
+  overflow: hidden;
+  transition: height 0.3s ease;
+}
+.homeBannerTitle {
+  position: absolute;
+  top: 38px;
+  max-width: 529px;
+
+  will-change: opacity;
+  transition: opacity 0.3s ease;
+
+  h1 {
+    margin-bottom: 8px;
+    font-size: calc(72px * var(--title-scale, 1));
+    line-height: calc(78px * var(--title-scale, 1) * var(--title-line, 1));
+    letter-spacing: var(--title-letter, 0px);
+    overflow: hidden;
+
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    will-change: max-height, opacity;
+
+    .italicTitle{
+      font-family: var(--font-gambetta);
+      font-weight: 300;
+      font-style: italic;
+    }
+    .boldTitle{
+      font-family: var(--font-gambetta);
+      font-weight: 700;
+    }
+  }
+}
+
+.kicker {
+  position: absolute;
+  top: 10px;
+  font-weight: 300;
+  font-family: var(--font-anek-latin);
+  font-size: calc(20px * var(--kicker-scale, 1));
+  line-height: calc(22px * var(--desc-scale, 1) * var(--desc-line, 1));
+  letter-spacing: var(--kicker-letter, 0px);
+}
+
+.desc {
+  margin-bottom: 32px;
+  font-family: var(--font-anek-latin);
+  font-weight: 500;
+  font-size: calc(16px * var(--desc-scale, 1));
+  line-height: calc(22px * var(--desc-scale, 1) * var(--desc-line, 1));
+  letter-spacing: var(--desc-letter, 0px);
+  opacity: 0.8;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.primaryBtn {
+    height: 48px;
+    padding: 9px 9px 9px 24px;  border-radius: 100px;
+  border: 1px solid var(--white);
+  color: var(--white);
+  text-decoration: none;
+  font-family: var(--font-anek-latin);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  span {
+    padding: 8px 0;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    border-radius: 100px;
+    padding: 6px 7px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  &:hover {
+    background: rgba(230, 230, 230, 0.1);
+  }
+}
+
+.secondaryBtn {
+    height: 48px;
+    padding: 9px 9px 9px 24px;
+      border-radius: 100px;
+  border: 1px solid var(--white);
+  background: var(--white);
+  color: rgba(47, 47, 51, 1);
+  text-decoration: none;
+  font-family: var(--font-anek-latin);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  span {
+    padding: 8px 0;
+  }
+
+  img {
+    width: 30px;
+    height: 30px;
+    opacity: 1;
+    border-radius: 100px;
+    padding: 6px 7px;
+    background: rgba(139, 21, 27, 1);
+  }
+
+  &:hover {
+    background: rgb(216, 215, 215);
+  }
+}
+
+.tabSection {
+  position: absolute;
+  bottom: 100px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  .tabs {
+    border: none;
+    padding-top: 20px;
+    pointer-events: auto;
+    width: 100%;
+    max-width: 1680px;
+    display: flex;
+    gap: 28px;
+    align-items: flex-start;
+    @media (max-width: 1780px) {
+      max-width: 1580px;
+    }
+    @media (max-width: 1600px) {
+      max-width: 1380px;
+    }
+  }
+  .tab {
+    background: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--white);
+    cursor: pointer;
+    padding: 8px 0;
+    position: relative;
+    max-width: 100px;
+    text-align: start;
+    opacity: 0.6;
+    font-family: var(--font-anek-latin);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0%;
+
+
+    &:focus-visible {
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .active {
+    opacity: 1;
+    border-top: 1px solid rgba(255, 255, 255, 0.8);
+  }
+}
+
+.right {
+  position: relative;
+  width: 626px;
+  height: 469px;
+  border-radius: 24px;
+  overflow: hidden;
+  .heroImage {
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    h1 {
+      font-size: 40px;
+    }
+  }
+}
+@media (max-width: 720px) {
+  .right {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video {
+    display: none;
+  }
+
+  .fadeIn,
+  .fadeOut {
+    transition: none;
+  }
+
+  .slideIn,
+  .slideOut {
+    transition: none;
+    transform: none;
+  }
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.fadeOut {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+}
+
+.kicker,
+.homeBannerTitle h1,
+.desc {
+  transition: font-size 0.2s ease, line-height 0.2s ease, letter-spacing 0.2s ease;
+}
+
+.video,
+.right .heroImage,
+.overlay {
+  filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+}
+
+.highlightLinks a,
+.highlightLinks button {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}

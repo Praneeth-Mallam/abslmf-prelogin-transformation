@@ -1,0 +1,729 @@
+/* ================================
+   Accessibility – Text Size Levels
+================================ */
+.textLevel0 {
+    --heading-scale: 1;
+    --desc-scale: 1;
+}
+
+.textLevel1 {
+    --heading-scale: 1.06;
+    --desc-scale: 1.05;
+}
+
+.textLevel2 {
+    --heading-scale: 1.12;
+    --desc-scale: 1.08;
+}
+
+/* ================================
+   Accessibility – Line Spacing Levels
+================================ */
+.lineLevel0 {
+    --heading-line: 1.2;
+    --desc-line: 1.5;
+}
+
+.lineLevel1 {
+    --heading-line: 1.4;
+    --desc-line: 1.8;
+}
+
+.lineLevel2 {
+    --heading-line: 1.6;
+    --desc-line: 2;
+}
+
+/* ================================
+   Accessibility – Letter Spacing Levels
+================================ */
+.letterLevel0 {
+    --heading-letter: -1.04px;
+    --desc-letter: 0px;
+}
+
+.letterLevel1 {
+    --heading-letter: 0px;
+    --desc-letter: 0.3px;
+}
+
+.letterLevel2 {
+    --heading-letter: 1px;
+    --desc-letter: 0.6px;
+}
+
+/* Accessibility – Color Filters */
+.grayscale {
+    --a11y-grayscale: 1;
+}
+
+.lowSaturation {
+    --a11y-saturate: 0.6;
+}
+
+/* Hide Images */
+.hideImages {
+
+    img,
+    .featureIcon img,
+    .countryFlag img {
+        display: none !important;
+    }
+
+    .countryFlag span {
+        display: inline-block !important;
+    }
+}
+
+/* ================================
+   Accessibility – Highlight Links
+================================ */
+.highlightLinks {
+
+    button,
+    .actionBtn,
+    .cta,
+    .userTypeBtn,
+    .countrySelectorButton,
+    .countryOption,
+    .checkboxLabel {
+        outline: 2px dotted #7a3cff !important;
+        outline-offset: 2px !important;
+    }
+
+    .actionBtn:hover,
+    .cta:hover,
+    .userTypeBtn:hover {
+        outline: 3px solid #7a3cff !important;
+    }
+}
+
+.letConnect {
+    display: flex;
+    padding: 80px;
+    justify-content: space-between;
+    align-items: center;
+    width: 1440px;
+    gap: 40px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* Apply accessibility variables to all text elements */
+.letConnect .letConnectTitle {
+    color: #2f2f33;
+    font-family: var(--font-gambetta);
+    font-size: calc(52px * var(--heading-scale, 1));
+    font-style: italic;
+    font-weight: 300;
+    line-height: calc(58px * var(--heading-line, 1.2));
+    letter-spacing: var(--heading-letter, -1.04px);
+    margin: 0;
+}
+
+.letConnect .letConnectTitleBold {
+    color: #2f2f33;
+    font-family: var(--font-gambetta);
+    font-size: calc(52px * var(--heading-scale, 1));
+    font-style: normal;
+    font-weight: 700;
+    line-height: calc(58px * var(--heading-line, 1.2));
+    letter-spacing: var(--heading-letter, -1.04px);
+    display: block;
+}
+
+.letConnect .featureText {
+    color: #5e6066;
+    font-family: var(--font-anek-latin);
+    font-size: calc(18px * var(--desc-scale, 1));
+    font-style: normal;
+    font-weight: 400;
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+    letter-spacing: var(--desc-letter, 0px);
+    margin: 0;
+}
+
+.letConnect .featureHighlight {
+    color: #8b151b;
+    font-family: var(--font-anek-latin);
+    font-size: calc(18px * var(--desc-scale, 1));
+    font-style: normal;
+    font-weight: 500;
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+    letter-spacing: var(--desc-letter, 0px);
+    margin: 0;
+}
+
+.letConnect .userTypeBtn {
+    padding: 15px 49px;
+    background: transparent;
+    border: none;
+    font-family: var(--font-anek-latin);
+    font-size: calc(16px * var(--desc-scale, 1));
+    font-weight: 500;
+    color: #5e6066;
+    cursor: pointer;
+    border-radius: 24px 24px 0 0;
+    transition: all 0.3s ease;
+    letter-spacing: var(--desc-letter, 0px);
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+        filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+
+
+    &.active {
+        color: #000;
+        background: #f6eeff;
+    }
+}
+
+.letConnect .field input,
+.letConnect .phoneInput input,
+.letConnect .countryCode,
+.letConnect .countrySelectorButton .countryCode,
+.letConnect .countryName,
+.letConnect .countryDialCode {
+    font-family: var(--font-anek-latin);
+    font-size: calc(14px * var(--desc-scale, 1));
+    letter-spacing: var(--desc-letter, 0px);
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+}
+
+.letConnect .product p,
+.letConnect .helpSection h3 {
+    color: #2f2f33;
+    font-family: var(--font-anek-latin);
+    font-size: calc(16px * var(--desc-scale, 1));
+    margin-bottom: 12px;
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+    letter-spacing: var(--desc-letter, 0px);
+}
+
+.letConnect .checkboxLabel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    height: 44px;
+    padding: 16px 24px 16px 20px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-anek-latin);
+    font-size: calc(14px * var(--desc-scale, 1));
+    color: #2f2f33;
+    cursor: pointer;
+    letter-spacing: var(--desc-letter, 0px);
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+    filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+}
+
+.letConnect .checkboxLabel input[type="checkbox"] {
+    color: var(--Secondary-Colours-Grey-4, #919297);
+    font-family: var(--font-anek-latin);
+    font-size: calc(14px * var(--desc-scale, 1));
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    accent-color: #8b151b;
+}
+
+.letConnect .textareaWrapper textarea {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    font-family: var(--font-anek-latin);
+    font-size: calc(14px * var(--desc-scale, 1));
+    resize: vertical;
+    min-height: 100px;
+    outline: none;
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+    letter-spacing: var(--desc-letter, 0px);
+    filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+
+    &::placeholder {
+        color: #919297;
+    }
+}
+
+.letConnect .wordCount {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: calc(12px * var(--desc-scale, 1));
+    color: #919297;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2px 8px;
+    border-radius: 12px;
+    letter-spacing: var(--desc-letter, 0px);
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+}
+
+.letConnect .actionBtn {
+    display: flex;
+    padding: 5px 9px 6px 9px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    border-radius: 6px;
+    background: rgba(218, 182, 255, 0.4);
+    color: var(--Secondary-Colours-Grey-6, #2f2f33);
+    font-family: var(--font-anek-latin);
+    font-size: calc(12px * var(--desc-scale, 1));
+    font-weight: 400;
+    opacity: 0.6;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: var(--desc-letter, 0px);
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+    filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.letConnect .cta {
+    display: flex;
+    padding: 12.5px 34.5px 12.5px 33.5px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100px;
+    background: var(--Primary-Colours-Dark-Purple, #2E1F52);
+    backdrop-filter: blur(14px);
+    width: fit-content;
+    filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+
+    p {
+        color: var(--White, #FFF);
+        text-align: center;
+        font-family: var(--font-anek-latin);
+        font-size: calc(14px * var(--desc-scale, 1));
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: var(--desc-letter, 0px);
+        line-height: calc(1.5 * var(--desc-line, 1.5));
+        margin: 0;
+    }
+}
+
+/* Original layout styles below - all with class prefixes */
+.letConnectLeft {
+    display: flex;
+    width: 415px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 42px;
+    flex-shrink: 0;
+}
+
+.letConnectFeatures {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.featureIcon {
+    display: flex;
+    width: 62px;
+    height: 62px;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    border-radius: 12px;
+    filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+}
+
+.featureContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.userType {
+    display: flex;
+    gap: 4px;
+    margin-bottom: -1px;
+}
+
+.formContainer {
+    background: #f6eeff;
+    border-radius: 0 24px 24px 24px;
+    padding: 24px;
+    filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.inputs {
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 48px;
+    padding: 14px 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.6);
+    width: 337px;
+
+    input {
+        width: 100%;
+        border: none;
+        background: transparent;
+        outline: none;
+    }
+
+    &.disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.phoneInput {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.product {
+    p {
+        color: #2f2f33;
+        font-family: var(--font-anek-latin);
+        font-size: calc(16px * var(--desc-scale, 1));
+        margin-bottom: 12px;
+        line-height: calc(1.5 * var(--desc-line, 1.5));
+        letter-spacing: var(--desc-letter, 0px);
+    }
+}
+
+.phoneInputWrapper {
+    display: flex;
+    width: 100%;
+    position: relative;
+    gap: 10px;
+}
+
+.countrySelector {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.countrySelectorButton {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0px 10px;
+    background: #f5f5f5;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    height: 100%;
+    transition: all 0.2s ease;
+    filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+
+    &:hover {
+        background: #ebebeb;
+    }
+
+    .countryFlag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 24px;
+
+        img,
+        span {
+            border-radius: 2px;
+            object-fit: cover;
+        }
+    }
+
+    .countryCode {
+        font-size: calc(14px * var(--desc-scale, 1));
+        font-weight: 500;
+        color: #333;
+        letter-spacing: var(--desc-letter, 0px);
+    }
+
+    .dropdownArrow {
+        font-size: 10px;
+        color: #666;
+        margin-left: 2px;
+    }
+}
+
+.countryDropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 320px;
+  max-height: 280px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+  z-index: 9999;
+}
+
+.countryList {
+  max-height: 280px;
+  overflow-y: auto;
+  padding: 6px 0;
+}
+
+.countryList::-webkit-scrollbar {
+  width: 8px;
+}
+
+.countryList::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.countryList::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.22);
+  border-radius: 999px;
+}
+
+.countryOption {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border: 0;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+
+  &:hover,
+  &:focus-visible {
+    background: rgba(46, 31, 82, 0.06);
+    outline: none;
+  }
+}
+
+.countryOption .countryFlag {
+  width: 26px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    width: 26px;
+    height: 18px;
+    border-radius: 3px;
+    object-fit: cover;
+  }
+
+  span {
+    font-size: 16px;
+    line-height: 1;
+  }
+}
+
+.countryOption .countryName {
+  flex: 1;
+  font-size: calc(14px * var(--desc-scale, 1));
+  color: #2f2f33;
+}
+
+.countryOption .countryDialCode {
+  font-size: calc(14px * var(--desc-scale, 1));
+  color: #8a8a8a;
+  font-weight: 500;
+}
+
+.countryCodeWithFlag {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    border-right: 1px solid #919297;
+    padding-right: 8px;
+}
+
+.countryFlag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img,
+    span {
+        border-radius: 2px;
+        object-fit: cover;
+        font-size: 16px;
+    }
+}
+
+.countryCode {
+    color: #2f2f33;
+    font-family: var(--font-anek-latin);
+    font-size: calc(14px * var(--desc-scale, 1));
+    white-space: nowrap;
+    letter-spacing: var(--desc-letter, 0px);
+}
+
+.phoneInput {
+    input {
+        flex: 1;
+        border: none;
+        background: transparent;
+        font-family: var(--font-anek-latin);
+        font-size: calc(14px * var(--desc-scale, 1));
+        color: #2f2f33;
+        outline: none;
+        padding: 0;
+        letter-spacing: var(--desc-letter, 0px);
+
+        &::placeholder {
+            color: #919297;
+        }
+    }
+}
+
+.checkboxGroup {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.helpSection {
+    h3 {
+        color: #2f2f33;
+        font-family: var(--font-anek-latin);
+        font-size: calc(16px * var(--desc-scale, 1));
+        margin-bottom: 12px;
+        line-height: calc(1.5 * var(--desc-line, 1.5));
+        letter-spacing: var(--desc-letter, 0px);
+    }
+}
+
+.textareaWrapper {
+    position: relative;
+
+    textarea {
+        width: 100%;
+        padding: 16px;
+        border: none;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.6);
+        font-family: var(--font-anek-latin);
+        font-size: calc(14px * var(--desc-scale, 1));
+        resize: vertical;
+        min-height: 100px;
+        outline: none;
+        line-height: calc(1.5 * var(--desc-line, 1.5));
+        letter-spacing: var(--desc-letter, 0px);
+        filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+
+        &::placeholder {
+            color: #919297;
+        }
+    }
+}
+
+.actionButtons {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+}
+
+.loading {
+    font-size: calc(12px * var(--desc-scale, 1));
+    color: #666;
+    margin-left: 8px;
+    letter-spacing: var(--desc-letter, 0px);
+    line-height: calc(1.5 * var(--desc-line, 1.5));
+}
+
+.submitBtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 0;
+}
+
+.disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.existingInvestorSection {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.existingInvestorTitle {
+    font-family: var(--font-anek-latin);
+    font-size: calc(14px * var(--desc-scale, 1));
+    color: #2f2f33;
+}
+
+.toggleWrapper {
+    display: inline-flex;
+    background: white;
+    border-radius: 20px;
+    padding: 4px;
+    width: fit-content;
+}
+
+.toggleBtn {
+    border: none;
+    background: transparent;
+    padding: 6px 20px;
+    border-radius: 16px;
+    cursor: pointer;
+    font-family: var(--font-anek-latin);
+    font-size: 14px;
+    color: #2f2f33;
+    transition: all 0.2s ease;
+}
+
+.activeToggle {
+    background: #dcdcdc;
+}
+
+.termsWrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: calc(12px * var(--desc-scale, 1));
+    font-family: var(--font-anek-latin);
+    color: #5e6066;
+
+    input {
+        accent-color: #8b151b;
+    }
+
+    a {
+        color: #8b151b;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+}

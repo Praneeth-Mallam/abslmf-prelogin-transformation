@@ -1,0 +1,656 @@
+/* ================================
+   Accessibility – Text Size Levels
+================================ */
+.textLevel0 {
+  --h1-scale: 1;
+  --h2-scale: 1;
+  --p-scale: 1;
+  --step-title-scale: 1;
+  --step-text-scale: 1;
+}
+
+.textLevel1 {
+  --h1-scale: 1.06;
+  --h2-scale: 1.05;
+  --p-scale: 1.05;
+  --step-title-scale: 1.05;
+  --step-text-scale: 1.05;
+}
+
+.textLevel2 {
+  --h1-scale: 1.12;
+  --h2-scale: 1.1;
+  --p-scale: 1.08;
+  --step-title-scale: 1.1;
+  --step-text-scale: 1.08;
+}
+
+/* ================================
+   Accessibility – Line Spacing Levels
+================================ */
+.lineLevel0 {
+  --h1-line: 1;
+  --h2-line: 1;
+  --p-line: 1;
+}
+
+.lineLevel1 {
+  --h1-line: 1.15;
+  --h2-line: 1.2;
+  --p-line: 1.2;
+}
+
+.lineLevel2 {
+  --h1-line: 1.3;
+  --h2-line: 1.35;
+  --p-line: 1.35;
+}
+
+/* ================================
+   Accessibility – Letter Spacing Levels
+================================ */
+.letterLevel0 {
+  --h1-letter: 0px;
+  --h2-letter: 0px;
+  --p-letter: 0px;
+}
+
+.letterLevel1 {
+  --h1-letter: 0.4px;
+  --h2-letter: 0.3px;
+  --p-letter: 0.3px;
+}
+
+.letterLevel2 {
+  --h1-letter: 0.8px;
+  --h2-letter: 0.6px;
+  --p-letter: 0.5px;
+}
+
+/* ================================
+   Accessibility – Color Filters
+================================ */
+.grayscale {
+  --a11y-grayscale: 1;
+}
+
+.lowSaturation {
+  --a11y-saturate: 0.6;
+}
+
+/* ================================
+   Accessibility – Highlight Links
+================================ */
+.highlightLinks {
+  .optionCard,
+  .topBackToHome,
+  .backButton,
+  .editChoicesBtn,
+  .submitBtn {
+    outline: 2px dotted #7a3cff;
+    outline-offset: 4px;
+    border-radius: 12px;
+  }
+}
+
+.highlightLinks {
+  .optionCard:hover,
+  .optionCard:focus-visible,
+  .topBackToHome:hover,
+  .topBackToHome:focus-visible,
+  .backButton:hover,
+  .backButton:focus-visible,
+  .editChoicesBtn:hover,
+  .editChoicesBtn:focus-visible,
+  .submitBtn:hover,
+  .submitBtn:focus-visible {
+    outline-color: #5a2bd8;
+  }
+}
+
+.wrapper {
+    padding: 120px 6vw;
+    background-image: url("/asset/image/Frame 2.png");
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    -webkit-user-select: none;
+    filter: grayscale(var(--a11y-grayscale, 0)) saturate(var(--a11y-saturate, 1));
+
+    h1 {
+        font-size: calc(52px * var(--h1-scale, 1));
+        line-height: calc(58px * var(--h1-line, 1));
+        letter-spacing: var(--h1-letter, 0px);
+        font-weight: 300;
+        color: #fff;
+        font-family: var(--font-gambetta);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-style: italic;
+
+        strong {
+            font-weight: 600;
+            font-style: normal;
+        }
+    }
+
+    .subtext {
+        text-align: center;
+        font-size: calc(16px * var(--p-scale, 1));
+        line-height: calc(22px * var(--p-line, 1));
+        letter-spacing: var(--p-letter, 0px);
+        font-weight: 400;
+        color: #fff;
+        opacity: 0.6;
+        margin-top: 16px;
+    }
+
+    .textContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 40px;
+        position: relative;
+        width: 100%;
+        max-width: 1280px;
+    }
+}
+
+.questionContainer {
+    width: 100%;
+    max-width: 1280px;
+    height: 100%;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.13);
+    box-shadow: inset 0 0 0 1px rgb(253, 243, 243);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    display: flex;
+    color: white;
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 320px;
+    padding: 160px 40px;
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.step {
+    display: flex;
+    gap: 16px;
+    min-height: 80px;
+}
+
+.stepIndicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    width: 24px;
+}
+
+.numberActive,
+.number,
+.numberCompleted {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.numberActive {
+    background-color: white;
+    color: #2E1F52;
+    /* Dark text for active number */
+}
+
+.number {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.numberCompleted {
+    background-color: #00D26B;
+    /* Bright green */
+    color: white;
+}
+
+.line {
+    flex: 1;
+    width: 2px;
+    background-color: transparent;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.4) 50%, transparent 50%);
+    background-size: 1px 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.lineFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00D26B;
+    transform-origin: top;
+    transform: scaleY(0);
+    /* Default to 0, GSAP will animate */
+}
+
+.stepText {
+    padding-bottom: 24px;
+
+    h4 {
+        margin: 0;
+        font-size: calc(16px * var(--step-title-scale, 1));
+        letter-spacing: var(--h2-letter, 0px);
+        font-weight: 500;
+
+        &.activeStepTitle {
+            color: #FFFFFF;
+        }
+
+        &.completedStepTitle {
+            color: #00D26B;
+        }
+    }
+
+    .inactive {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    p {
+        margin: 4px 0 0 0;
+        font-size: calc(12px * var(--step-text-scale, 1));
+        line-height: calc(16px * var(--p-line, 1));
+        letter-spacing: var(--p-letter, 0px);
+        color: rgba(255, 255, 255, 0.5);
+        text-align: left;
+    }
+}
+
+/* Right Content */
+.contentArea {
+    flex: 1;
+    padding: 40px 50px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.questionHeader {
+    text-align: center;
+    margin-bottom: 40px;
+
+    .questionNumber {
+        font-size: calc(14px * var(--p-scale, 1));
+        letter-spacing: var(--p-letter, 0px);
+        color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 8px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: calc(32px * var(--h2-scale, 1));
+        line-height: calc(38px * var(--h2-line, 1));
+        letter-spacing: var(--h2-letter, 0px);
+        font-weight: 400;
+        font-family: var(--font-gambetta);
+        margin: 0;
+    }
+}
+
+.topBackToHome {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparent;
+    border: none;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    padding: 0;
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    width: max-content;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.optionsGrid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.optionCard {
+    background-color: #F2F2F2;
+    color: #1A1A1A;
+    border-radius: 12px;
+    width: 270px;
+    height: 110px;
+    padding: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:hover {
+        background-color: #fff;
+        transform: translateY(-2px);
+    }
+
+    &.selected {
+        box-shadow: 0 0 0 2px #AC56FF;
+        background-color: #FFFFFF;
+    }
+}
+
+.iconWrapper {
+    display: flex;
+    color: #1A1A1A;
+}
+
+.optionLabel {
+    font-size: 15px;
+    font-weight: 500;
+    white-space: pre-line;
+    line-height: 1.3;
+}
+
+.radioCircle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.selected .radioCircle {
+    border-color: #AC56FF;
+}
+
+.radioInner {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #AC56FF;
+}
+
+.backButton {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* -------------------------- */
+/* SUMMARY SECTION (Step 4)   */
+/* -------------------------- */
+
+.summaryWrapper {
+    width: 100%;
+    max-width: 1280px;
+    height: auto;
+    min-height: 720px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.13);
+    box-shadow: inset 0 0 0 1px rgb(253, 243, 243);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 40px;
+    position: relative;
+}
+
+.summaryBackHome {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    background: none;
+    border: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.summaryHeader {
+    text-align: center;
+    margin-bottom: 40px;
+    position: relative;
+
+    h2 {
+        font-family: var(--font-gambetta);
+        font-style: italic;
+        font-weight: 300;
+        font-size: 32px;
+        margin: 0;
+        color: rgba(255, 255, 255, 0.9);
+    }
+
+    h1 {
+        font-family: var(--font-gambetta);
+        font-size: 48px;
+        font-weight: 600;
+        margin: 5px 0 15px 0;
+    }
+
+    p {
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+        margin: 0;
+    }
+}
+
+.summaryContent {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.summaryStepsBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 30px;
+}
+
+.summaryCheck {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #00D26B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.summaryLine {
+    height: 2px;
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.summaryLineFill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #00D26B;
+    transform-origin: left;
+    transform: scaleX(0);
+    /* Default to 0, GSAP will animate */
+}
+
+.summaryItemsGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    max-width: 900px;
+    gap: 20px;
+    text-align: center;
+}
+
+.summaryItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.summaryQuestionText {
+    min-height: 48px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: pre-line;
+}
+
+.summaryCard {
+    background-color: #fff;
+    color: #1A1A1A;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 260px;
+    height: 90px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 12px;
+    text-align: left;
+
+    .iconWrapper {
+        color: #1A1A1A;
+    }
+
+    .optionLabel {
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 1.2;
+    }
+}
+
+.summaryActions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 20px;
+    margin-top: 40px;
+}
+
+.editChoicesBtn {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: white;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-color: white;
+    }
+}
+
+.submitBtn {
+    background: white;
+    color: #2E1F52;
+    border: none;
+    height: 48px;
+    padding: 0 24px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #f0f0f0;
+        transform: translateY(-2px);
+    }
+}
